@@ -9,49 +9,51 @@ import javax.persistence.Id;
 @Entity
 
 public class SneakerDom {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	 //attributes of sneaker data
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	// attributes of sneaker data
 	public Integer id;
-	
-@Column(nullable=false)
+
+	@Column(nullable = false)
 	public String name;
-	
-@Column(nullable=false)
-	public String collectionName;
-	
-@Column(nullable=false)
+
+	@Column(nullable = false)
+	public Integer serialNo;
+
+	@Column(nullable = false)
 	public Integer size;
-	
-@Column(nullable=false)
-	public Boolean ownedCheck;
-	
-@Column(nullable=false)
+
+//@Column(nullable=false)
+	// public Boolean ownedCheck;
+
+	@Column(nullable = false)
 	public Integer condition;
-	
-@Column(nullable=false)
+
+	@Column(nullable = false)
 	public String colour1;
-	
-@Column(nullable=false)
+
+	@Column(nullable = false)
 	public String colour2;
-	
-@Column(nullable=false)
+
+	@Column(nullable = false)
 	public String material;
 
-	public SneakerDom(Integer id, String name, String collectionName, Integer size, Boolean ownedCheck,
-			Integer condition, String colour1, String colour2, String material) {
+	public SneakerDom(Integer id, String name, Integer serialNo, Integer size, Integer condition, String colour1,
+			String colour2, String material) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.collectionName = collectionName;
+		this.serialNo = serialNo;
 		this.size = size;
-		this.ownedCheck = ownedCheck;
+
+		// extra stuff
+		// this.ownedCheck = ownedCheck;
 		this.condition = condition;
 		this.colour1 = colour1;
 		this.colour2 = colour2;
 		this.material = material;
 	}
-	
+
 	public SneakerDom() {
 		super();
 	}
@@ -72,12 +74,12 @@ public class SneakerDom {
 		this.name = name;
 	}
 
-	public String getCollectionName() {
-		return collectionName;
+	public Integer getserialNo() {
+		return serialNo;
 	}
 
-	public void setCollectionName(String collectionName) {
-		this.collectionName = collectionName;
+	public void setserialNo(Integer serialNo) {
+		this.serialNo = serialNo;
 	}
 
 	public Integer getSize() {
@@ -86,14 +88,6 @@ public class SneakerDom {
 
 	public void setSize(Integer size) {
 		this.size = size;
-	}
-
-	public Boolean getOwnedCheck() {
-		return ownedCheck;
-	}
-
-	public void setOwnedCheck(Boolean ownedCheck) {
-		this.ownedCheck = ownedCheck;
 	}
 
 	public Integer getCondition() {
@@ -130,12 +124,8 @@ public class SneakerDom {
 
 	@Override
 	public String toString() {
-		return "SneakerDom [id=" + id + ", name=" + name + ", collectionName=" + collectionName + ", size=" + size
-				+ ", ownedCheck=" + ownedCheck + ", condition=" + condition + ", colour1=" + colour1 + ", colour2="
-				+ colour2 + ", material=" + material + "]";
+		return "SneakerDom [id=" + id + ", name=" + name + ", serialNo=" + serialNo + ", size=" + size + ", condition="
+				+ condition + ", colour1=" + colour1 + ", colour2=" + colour2 + ", material=" + material + "]";
 	}
-	
-	
-	
 
 }
